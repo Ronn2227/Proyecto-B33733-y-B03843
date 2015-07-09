@@ -79,10 +79,30 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arbol.h" />
+    <ClInclude Include="Elemento.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="NodoArbol.h" />
+    <ClInclude Include="NodoLista.h" />
+    <ClInclude Include="Operacion.h" />
+    <ClInclude Include="Operador.h" />
+    <ClInclude Include="OperadorDivision.h" />
+    <ClInclude Include="OperadorMultiplicacion.h" />
+    <ClInclude Include="OperadorResta.h" />
+    <ClInclude Include="OperadorSuma.h" />
+    <ClInclude Include="Operando.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Elemento.cpp" />
+    <ClCompile Include="Operacion.cpp" />
+    <ClCompile Include="Operador.cpp" />
+    <ClCompile Include="OperadorDivision.cpp" />
+    <ClCompile Include="OperadorMultiplicacion.cpp" />
+    <ClCompile Include="OperadorResta.cpp" />
+    <ClCompile Include="OperadorSuma.cpp" />
+    <ClCompile Include="Operando.cpp" />
     <ClCompile Include="Proyecto B33733 y B03843.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
