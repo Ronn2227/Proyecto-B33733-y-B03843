@@ -47,15 +47,15 @@ public:
 		resolverArbol(raiz);
 	}
 
-	NodoArbol<T> * getRaiz() {
-		return raiz;
+	T getRaiz() {
+		return raiz->getActual();
 	}
 
 private:
 	void descomponerOperacion(NodoArbol<T> *& nodo) { // Descompone la operación en operaciones más sencillas a resolver; recursivamente.
 		Operacion * actual = dynamic_cast<Operacion *>(nodo->getActual()); // Intenta convertir el nodo en una "Operacion".
 		if (actual != 0){ // Si era una Operacion quita el nodo y lo remplaza por un árbol que divide la operacion en dos partes.
-			NodoArbol<T> * temp = new NodoArbol<T>(crearArbol(actual));
+			NodoArbol<T> * temp = crearArbol(actual);
 			delete nodo;
 			nodo = temp;
 		}
@@ -83,9 +83,13 @@ private:
 		//Resuelve primero los hijos y luego se resuelve él.
 
 		if (nodo->getHijoIzq() != NULL && nodo->getHijoDer() != NULL){ // Si no tiene hijos entonces es una operador y no hace nada.
-			Operador* actual = static_cast<Operador*>(nodo->getActual()); // Convierte al nodo en un operador .
+
+			Operando * hIzq = dynamic_cast<Operando*>(nodo->getHijoIzq()->getActual());
+			Operando * hDer = dynamic_cast<Operando*>(nodo->getHijoDer()->getActual());
+
+			Operador* actual = dynamic_cast<Operador*>(nodo->getActual()); // Convierte al nodo en un operador .
 			// Quita el nodo y lo remplaza con en el resultado correspondiente al tipo de operador con sus dos hijos.
-			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(static_cast<Operando *>(actual->getHijoIzq()), static_cast<Operando *>(actual->getHijoDer())));
+			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(hIzq, hDer));
 			delete nodo;
 			nodo = temp;
 		}

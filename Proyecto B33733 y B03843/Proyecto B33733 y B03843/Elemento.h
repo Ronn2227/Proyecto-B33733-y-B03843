@@ -5,9 +5,11 @@ using namespace std;
 class Elemento {
 
 	friend ostream & operator<<(ostream &, const Elemento &);
+	friend ostream & operator<<(ostream &, const Elemento *);
 
 protected:
 	Elemento();
+	Elemento(Elemento&);
 
 public:
 
@@ -23,3 +25,4 @@ public:
 };
 
 ostream & operator<<(ostream &, const Elemento &);
+ostream & operator<<(ostream &, const Elemento *);

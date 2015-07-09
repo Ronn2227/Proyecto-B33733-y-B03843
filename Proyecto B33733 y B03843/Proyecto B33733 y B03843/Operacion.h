@@ -13,6 +13,8 @@ protected:
 public:
 
 	Operacion(string oper);
+	Operacion(Operacion &);
+
 	virtual ~Operacion();
 	virtual int compareTo(Elemento *);
 	virtual void imprimir(ostream &) const;

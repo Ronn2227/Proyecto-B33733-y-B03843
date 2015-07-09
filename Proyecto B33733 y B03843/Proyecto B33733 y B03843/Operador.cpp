@@ -2,7 +2,10 @@
 #include "Operador.h"
 
 
-Operador::Operador() : Elemento(){
+Operador::Operador(){
+}
+
+Operador::Operador(Operador &) : Elemento(*this){
 }
 
 

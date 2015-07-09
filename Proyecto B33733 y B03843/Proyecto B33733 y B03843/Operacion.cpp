@@ -2,10 +2,12 @@
 #include "Operacion.h"
 
 
-Operacion::Operacion(string oper) : Elemento(){
+Operacion::Operacion(string oper) : Elemento() {
 	this->operacion = oper;
 }
 
+Operacion::Operacion(Operacion & otro) : Operacion(otro.operacion) {
+}
 
 Operacion::~Operacion(){
 }

@@ -3,57 +3,43 @@
 
 #include "stdafx.h"
 #include "Lista.h"
+#include "Arbol.h"
+#include "Operacion.h"
 
 
-int _tmain(int argc, _TCHAR* argv[]) {
-	srand((unsigned int)time(NULL));
+int _tmain(int argc, _TCHAR* argv[]){
+	string linea; // Guarda temporalmente cada linea del archivo de operaciones.
+	ifstream fileOperaciones;
+	ofstream fileResultados;
+	fileOperaciones.open("Operaciones.txt");// Archivo de operaciones.
+	fileResultados.open("Resultados.txt");// Archivo de resultados.
 
-	int cantidadElementos = rand() % 41 + 15; // Setea cantidad de Elementos de la Lista en un valor aleatorio entre 15 y 50.
-	Lista<int> enteros;
-	for (int i = 0; i < cantidadElementos; i++){
+	Lista<Elemento*> operaciones;
+	Lista<Elemento*> resultados;
 
-		int cualInsercion = rand() % 3;
-
-		if (cualInsercion == 0){ // Elige de manera aleatoria si incertar en la cabeza, en una posicion o en la cola.
-			enteros.insertarCabeza(rand() % 100);
+	if (fileOperaciones.is_open()){ // Lee el archivo y crea la lista de operaciones.
+		while (getline(fileOperaciones, linea)){
+			operaciones.insertarCola(new Operacion(linea));
 		}
-		else if (cualInsercion == 1){
-			enteros.insertarNodo(rand() % 100, rand() % (enteros.getSize() + 1)); // Incerta en una posicion aleatoria entre 0 y el tamaño de la lista.
-		}
-		else {
-			enteros.insertarCola(rand() % 100);
-		}
+		fileOperaciones.close();
+	}
+	else {
+		cout << "No se pudo abrir el archivo" << endl;
 	}
 
-	cout << "Lista de enteros:" << endl;
-	cout << enteros << endl;
-
-	for (int i = 0; i < 10; i++){
-		int cualRemocion = rand() % 3;
-
-		if (cualRemocion == 0){ // Elige de manera aleatoria si remover la cabeza, una posicion o la cola.
-			enteros.removerCabeza();
-		}
-		else if (cualRemocion == 1){
-			enteros.removerNodo(rand() % (enteros.getSize() + 1)); // Renueve en una posicion aleatoria entre 0 y el tamaño de la lista.
-		}
-		else {
-			enteros.removerCola();
-		}
+	for (int i = 0; i < operaciones.getSize(); i++){ // Resuelve cada operacion con un árbol.
+		Arbol<Elemento*> a;
+		Elemento *temp1 = operaciones.buscarPorPosicion(i); // Elemento temporal con la operación a resolver para insertarlo al arbol y que cuando se elimine, no afecte la lista de operaciones.
+		a.insertarElemento(temp1);
+		a.descomponerOperacion();
+		a.resolverArbol();
+		Elemento * temp2 = a.getRaiz(); // Elemento temporal para insertar en la lista de resultados para que no se vea afectado con la eliminacion del árbol.
+		resultados.insertarCola(temp2);
 	}
 
-	cout << "Lista de enteros con 10 remociones aleatorias:" << endl;
-	cout << enteros << endl;
+	fileResultados << resultados << endl; // Agrega los resultados al archivo de resultados.
+	fileResultados.close();
 
-	NodoLista<int> * eleInt = enteros.buscarPorPosicion(2);
-	cout << "en la posicion " << 2 << " hay un: " << *eleInt << endl;
-	eleInt = enteros.buscarPorPosicion(enteros.getSize() - 3);
-	cout << "en la posicion " << enteros.getSize() - 3 << " hay un: " << *eleInt << endl;
-
-	cout << "el tamaño de la lista es de: " << enteros.getSize() << endl;
-	cout << endl;
-
-
+	system("pause");
 	return 0;
 }
-
