@@ -25,7 +25,7 @@ public:
 		cola = NULL;
 	}
 
-	virtual ~Lista() {
+	~Lista() {
 		if (cabeza != NULL) {
 			destruirLista();
 		}
@@ -203,7 +203,7 @@ public:
 		return posicion;
 	}
 
-	NodoLista<T> * buscarPorPosicion(int posicion) { // Devuelve el Nodo según una posición.
+	T buscarPorPosicion(int posicion) { // Devuelve el Nodo según una posición.
 		NodoLista<T> * actual = cabeza; // Nodo a devolver.
 		if (posicion <= 0){ // Si la dirección es 0 (o menor) se devuelve la cabeza.
 			actual = cabeza;
@@ -224,7 +224,7 @@ public:
 				}
 			}
 		}
-		return actual;
+		return actual->getActual();
 	}
 
 	int getSize() { // Devuelve el tamaño de la lista (cantidad de Nodos).
