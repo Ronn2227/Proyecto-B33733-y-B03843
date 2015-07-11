@@ -1,12 +1,13 @@
 #pragma once
 
+
 #include "OperadorBinario.h"
 
-class OperadorResta : public OperadorBinario {
+class OperadorPotencia : public OperadorBinario {
 
 public:
-	OperadorResta();
-	virtual ~OperadorResta();
+	OperadorPotencia();
+	virtual ~OperadorPotencia();
 
 	virtual int compareTo(Elemento *);
 	virtual void imprimir(ostream &) const;

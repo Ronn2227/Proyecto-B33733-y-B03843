@@ -89,7 +89,7 @@ private:
 
 			Operador* actual = dynamic_cast<Operador*>(nodo->getActual()); // Convierte al nodo en un operador .
 			// Quita el nodo y lo remplaza con en el resultado correspondiente al tipo de operador con sus dos hijos.
-			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(hIzq, hDer));
+			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(nodo.get));
 			delete nodo;
 			nodo = temp;
 		}

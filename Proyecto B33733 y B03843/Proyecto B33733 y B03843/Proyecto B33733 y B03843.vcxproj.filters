@@ -60,6 +60,33 @@
     <ClInclude Include="OperadorMultiplicacion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OperadorPotencia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorUnario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorTerciario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorBinario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorSen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorCos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorTan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorFuncion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -90,6 +117,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OperadorMultiplicacion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorPotencia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorUnario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorTerciario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Operador Binario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorSen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorCos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorTan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorFuncion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

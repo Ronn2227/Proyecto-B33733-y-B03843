@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Operacion.h"
 
+const char Operacion::OPERADORES[Operacion::NUM_OPERADORES] = { '+', '-', '*', '/' , '^', 's' , 'c', 't', 'l', 'f'};
 
 Operacion::Operacion(string oper) : Elemento() {
 	this->operacion = oper;
@@ -26,67 +27,23 @@ void Operacion::imprimir(ostream& out) const{
 }
 
 int Operacion::buscarOperador(){
-	bool encontrado = false;
-	int contadorParentesis = 0;
-	int tamano = operacion.length();
-	int contador = tamano - 1;
-	int respuesta = -1; // Posición a devolver, si no lo encuentra devuelve un -1.
-	// Recorre el string buscando el operador con menor precedencia una vez por cada 
-	// posible grupo de tipo de operador (+ y -) o (* y /) hasta que encuentre alguno, ignorando los paréntesis.
-	while (encontrado == false && contador >= 0){
-		if (operacion[contador] == ')'){
-			contadorParentesis++;
-			contador--;
-			while (contadorParentesis != 0){
-				if (operacion[contador] == ')'){
-					contadorParentesis++;
-				}
-				else if (operacion[contador] == '('){
-					contadorParentesis--;
-				}
-				contador--;
+	int index = -1;
+	int parentesis = 0;
+	for (int k = 0; k < NUM_OPERADORES && index == -1; k++) {
+		for (unsigned int i = 0; i < operacion.length() && index == -1; ++i) {
+			char c = operacion[i];
+			if (c == '(') {
+				parentesis++;
 			}
-			contador++;
-		}
-		else if (operacion[contador] == '-'){
-			respuesta = contador;
-			encontrado = true;
-		}
-		else if (operacion[contador] == '+'){
-			respuesta = contador;
-			encontrado = true;
-		}
-		contador--;
-	}
-
-	contador = tamano - 1;
-	while (encontrado == false && contador >= 0){
-		if (operacion[contador] == ')'){
-			contadorParentesis++;
-			contador--;
-			while (contadorParentesis != 0){
-				if (operacion[contador] == ')'){
-					contadorParentesis++;
-				}
-				else if (operacion[contador] == '('){
-					contadorParentesis--;
-				}
-				contador--;
+			else if (c == ')') {
+				parentesis--;
 			}
-			contador++;
+			else if (parentesis == 0 && c == OPERADORES[k]) {
+				index = i;
+			}
 		}
-		else if (operacion[contador] == '/'){
-			respuesta = contador;
-			encontrado = true;
-		}
-		else if (operacion[contador] == '*'){
-			respuesta = contador;
-			encontrado = true;
-		}
-		contador--;
 	}
-
-	return respuesta;
+	return index;
 }
 
 int Operacion::buscarParentesis(){

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Operador.h"
+#include "OperadorBinario.h"
 
-class OperadorDivision : public Operador{
+class OperadorDivision : public OperadorBinario{
 
 public:
 	OperadorDivision();
@@ -10,5 +10,5 @@ public:
 
 	virtual int compareTo(Elemento *);
 	virtual void imprimir(ostream &) const;
-	virtual Operando * operar(Operando*, Operando *);
+	virtual Operando * operar(Lista<NodoArbol <Elemento*>>);
 };

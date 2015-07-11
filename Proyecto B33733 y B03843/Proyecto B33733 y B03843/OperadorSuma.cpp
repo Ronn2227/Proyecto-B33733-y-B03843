@@ -2,7 +2,8 @@
 #include "OperadorSuma.h"
 
 
-OperadorSuma::OperadorSuma() :Operador(){
+OperadorSuma::OperadorSuma() :OperadorBinario(){
+
 }
 
 
@@ -10,7 +11,7 @@ OperadorSuma::~OperadorSuma(){
 }
 
 int OperadorSuma::compareTo(Elemento * otro) {
-	int cmp = -1; // No es necesario compararlo, siempre devuelve un -1.
+	int cmp = 0; 
 	return cmp;
 }
 
@@ -18,6 +19,8 @@ void OperadorSuma::imprimir(ostream& out) const {
 	out << '+';
 }
 
-Operando * OperadorSuma::operar(Operando * a, Operando * b){
+Operando * OperadorSuma::operar(Lista<NodoArbol <Elemento*>> hijos){
+	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
+	Operando* b = static_cast<Operando*>(hijos.buscarPorPosicion(1).getActual());
 	return new Operando(a->getOperando() + b->getOperando());
 }

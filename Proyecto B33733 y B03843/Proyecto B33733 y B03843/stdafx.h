@@ -18,3 +18,4 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <cmath>

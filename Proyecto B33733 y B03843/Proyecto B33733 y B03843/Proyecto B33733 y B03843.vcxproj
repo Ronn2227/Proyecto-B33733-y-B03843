@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -86,10 +86,19 @@
     <ClInclude Include="NodoLista.h" />
     <ClInclude Include="Operacion.h" />
     <ClInclude Include="Operador.h" />
+    <ClInclude Include="OperadorCos.h" />
     <ClInclude Include="OperadorDivision.h" />
+    <ClInclude Include="OperadorFuncion.h" />
+    <ClInclude Include="OperadorLog.h" />
     <ClInclude Include="OperadorMultiplicacion.h" />
+    <ClInclude Include="OperadorPotencia.h" />
     <ClInclude Include="OperadorResta.h" />
+    <ClInclude Include="OperadorBinario.h" />
+    <ClInclude Include="OperadorSen.h" />
     <ClInclude Include="OperadorSuma.h" />
+    <ClInclude Include="OperadorTan.h" />
+    <ClInclude Include="OperadorTerciario.h" />
+    <ClInclude Include="OperadorUnario.h" />
     <ClInclude Include="Operando.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -98,10 +107,19 @@
     <ClCompile Include="Elemento.cpp" />
     <ClCompile Include="Operacion.cpp" />
     <ClCompile Include="Operador.cpp" />
+    <ClCompile Include="OperadorCos.cpp" />
     <ClCompile Include="OperadorDivision.cpp" />
+    <ClCompile Include="OperadorFuncion.cpp" />
+    <ClCompile Include="OperadorLog.cpp" />
     <ClCompile Include="OperadorMultiplicacion.cpp" />
+    <ClCompile Include="OperadorPotencia.cpp" />
     <ClCompile Include="OperadorResta.cpp" />
+    <ClCompile Include="Operador Binario.cpp" />
+    <ClCompile Include="OperadorSen.cpp" />
     <ClCompile Include="OperadorSuma.cpp" />
+    <ClCompile Include="OperadorTan.cpp" />
+    <ClCompile Include="OperadorTerciario.cpp" />
+    <ClCompile Include="OperadorUnario.cpp" />
     <ClCompile Include="Operando.cpp" />
     <ClCompile Include="Proyecto B33733 y B03843.cpp" />
     <ClCompile Include="stdafx.cpp">

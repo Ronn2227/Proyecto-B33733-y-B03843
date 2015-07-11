@@ -2,7 +2,7 @@
 #include "OperadorResta.h"
 
 
-OperadorResta::OperadorResta() :Operador(){
+OperadorResta::OperadorResta() :OperadorBinario(){
 }
 
 
@@ -18,6 +18,8 @@ void OperadorResta::imprimir(ostream& out) const {
 	out << '-';
 }
 
-Operando * OperadorResta::operar(Operando * a, Operando * b){
+Operando * OperadorResta::operar(Lista<NodoArbol <Elemento*>> hijos) {
+	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
+	Operando* b = static_cast<Operando*>(hijos.buscarPorPosicion(1).getActual());
 	return new Operando(a->getOperando() - b->getOperando());
 }
