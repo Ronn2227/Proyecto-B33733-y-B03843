@@ -66,9 +66,6 @@
     <ClInclude Include="OperadorUnario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperadorTerciario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="OperadorBinario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -85,6 +82,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OperadorFuncion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperadorTernario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -125,9 +125,6 @@
     <ClCompile Include="OperadorUnario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OperadorTerciario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Operador Binario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -144,6 +141,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="OperadorFuncion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperadorTernario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

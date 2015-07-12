@@ -2,11 +2,11 @@
 
 #include "Operador.h"
 
-class OperadorTerciario : public Operador
-{
+class OperadorTernario : public Operador {
+
 public:
-	OperadorTerciario();
-	~OperadorTerciario();
+	OperadorTernario();
+	~OperadorTernario();
 	virtual int compareTo(Elemento *) = 0;
 	virtual void imprimir(ostream &) const = 0;
 	virtual Operando * operar(Lista<NodoArbol <Elemento*>>) = 0;

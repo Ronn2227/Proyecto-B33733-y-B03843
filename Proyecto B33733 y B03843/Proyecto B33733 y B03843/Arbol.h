@@ -2,13 +2,15 @@
 
 #include "NodoArbol.h"
 #include "Operacion.h"
-# include "Operador.h"
-# include "Operando.h"
-# include "OperadorSuma.h"
-# include "OperadorResta.h"
-# include "OperadorMultiplicacion.h"
-# include "OperadorDivision.h"
-# include "OperadorBinario.h"
+#include "Operador.h"
+#include "Operando.h"
+#include "OperadorSuma.h"
+#include "OperadorResta.h"
+#include "OperadorMultiplicacion.h"
+#include "OperadorDivision.h"
+#include "OperadorBinario.h"
+#include "OperadorUnario.h"
+#include "OperadorTernario.h"
 
 using namespace std;
 

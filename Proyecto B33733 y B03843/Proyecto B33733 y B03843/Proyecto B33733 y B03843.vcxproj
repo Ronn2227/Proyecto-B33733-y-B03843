@@ -97,7 +97,7 @@
     <ClInclude Include="OperadorSen.h" />
     <ClInclude Include="OperadorSuma.h" />
     <ClInclude Include="OperadorTan.h" />
-    <ClInclude Include="OperadorTerciario.h" />
+    <ClInclude Include="OperadorTernario.h" />
     <ClInclude Include="OperadorUnario.h" />
     <ClInclude Include="Operando.h" />
     <ClInclude Include="stdafx.h" />
@@ -118,7 +118,7 @@
     <ClCompile Include="OperadorSen.cpp" />
     <ClCompile Include="OperadorSuma.cpp" />
     <ClCompile Include="OperadorTan.cpp" />
-    <ClCompile Include="OperadorTerciario.cpp" />
+    <ClCompile Include="OperadorTernario.cpp" />
     <ClCompile Include="OperadorUnario.cpp" />
     <ClCompile Include="Operando.cpp" />
     <ClCompile Include="Proyecto B33733 y B03843.cpp" />
