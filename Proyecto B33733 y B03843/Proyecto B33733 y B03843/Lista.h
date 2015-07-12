@@ -1,7 +1,7 @@
 #pragma once
 
 #include "NodoLista.h"
-//#include "Iterador.h"
+#include "IteradorLista.h"
 
 using namespace std;
 
@@ -231,23 +231,22 @@ public:
 		return size;
 	}
 
-	/*
-	Iterador<T> begin() { // Devuelve itarador que apunta a la cabeza para que recorra hacia adelante.
-		return Iterador<T>(cabeza);
+	IteradorLista<T> begin() { // Devuelve itarador que apunta a la cabeza para que recorra hacia adelante.
+		return IteradorLista<T>(cabeza);
 	}
 
-	Iterador<T> rBegin() { // Devuelve iterador que apunta a la cola para que recorra hacia atras.
-		return Iterador<T>(cola);
+	IteradorLista<T> rBegin() { // Devuelve iterador que apunta a la cola para que recorra hacia atras.
+		return IteradorLista<T>(cola);
 	}
 
-	Iterador<T> end() {
-		return Iterador<T>(NULL);
+	IteradorLista<T> end() {
+		return IteradorLista<T>(NULL);
 	}
 
-	Iterador<T> rEnd() {
-		return Iterador<T>(NULL);
+	IteradorLista<T> rEnd() {
+		return IteradorLista<T>(NULL);
 	}
-	*/
+	
 
 private:
 

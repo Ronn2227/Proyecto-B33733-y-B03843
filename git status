@@ -1,0 +1,83 @@
+[33mcommit 738c5ede8626ab8aaf21c07d37d310a09045c993[m
+Merge: fee18c8 e6aed9a
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sun Jul 12 14:21:17 2015 -0600
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit fee18c8621a36a41f7e4bc3ae032c00e0ae77b45[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sun Jul 12 14:20:32 2015 -0600
+
+    Revert "Revert "Cambio de hijos Arbol""
+    
+    This reverts commit cdf3e232b29dd29ac10db167109f329aa1be4a77.
+
+[33mcommit cdf3e232b29dd29ac10db167109f329aa1be4a77[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sun Jul 12 14:17:27 2015 -0600
+
+    Revert "Cambio de hijos Arbol"
+    
+    This reverts commit 4ed3c4b352e0cea432f8747f4fbb36e5877e3209.
+
+[33mcommit e6aed9ab7aadb09cfbbe82a306ae7aacd2eb6c25[m
+Merge: 4ed3c4b 36e79cf
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sat Jul 11 13:04:08 2015 -0600
+
+    Cambios recientes
+
+[33mcommit 4ed3c4b352e0cea432f8747f4fbb36e5877e3209[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sat Jul 11 00:14:23 2015 -0600
+
+    Cambio de hijos Arbol
+    
+    Se cambian los hijos del Arbol de izq y der a una sola Lista que tiene
+    los hijos correspondientes
+
+[33mcommit 36e79cfa9f823042b0cd1739a812225b2a754ff9[m
+Author: 1nthemist <otmerk_@hotmail.com>
+Date:   Fri Jul 10 19:51:24 2015 -0700
+
+    Operadores y se modifico operación
+    
+    Se añadieron los operadores adicionales al examen, así como los
+    operadores unario, binario y terciario. Se modificó la forma de buscar
+    el índice de menor precedencia.
+
+[33mcommit 439c376b81babb200fb4a223ac5ae1d451bf08c2[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Thu Jul 9 18:06:08 2015 -0600
+
+    Corrección Commit Anterior
+
+[33mcommit d4c3b3a2b37d767033b88fa4e77f57dd7c825c84[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Thu Jul 9 17:58:39 2015 -0600
+
+    Funciona el arbol emplantilado
+
+[33mcommit 8c324db228adf0739e68596fd3cee2b5a4cf8913[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Thu Jul 9 15:00:57 2015 -0600
+
+    Agrego Lista y clases anteriores y plantilla Arbol
+    
+    Se agrega la clase Lista emplantillada así como las clases anteriores
+    usadas en el examen y se comienza con el emplantillado de la clase Arbol
+
+[33mcommit fb4f3148e25e8f25fffde938983a1c17ed40c2ed[m
+Author: Ronn2227 <ronn2227@hotmail.com>
+Date:   Sun Jul 5 01:51:27 2015 -0600
+
+    Creación del proyecto
+    
+    Se crea el proyecto de Visual Studio
+
+[33mcommit 1aa972199d083f4aad4a870beedba870e15e8d68[m
+Author: Ronn2227 <Ronn2227@users.noreply.github.com>
+Date:   Sun Jul 5 01:46:06 2015 -0600
+
+    Initial commit

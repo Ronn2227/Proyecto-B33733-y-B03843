@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Lista.h"
+
 using namespace std;
 
 template<class T>
@@ -11,7 +13,7 @@ class NodoArbol {
 private:
 
 	T actual;
-	NodoArbol<T> *hijoIzq, *hijoDer; // Hijo izquierdo y derecho del nodo respectivamente.
+	Lista<NodoArbol<T>> hijos;
 
 public:
 
@@ -19,7 +21,7 @@ public:
 		this->actual = elemento;
 		hijoIzq = NULL;
 		hijoDer = NULL;
-	}
+	}	
 
 	~NodoArbol(){
 	}
@@ -28,20 +30,20 @@ public:
 		return actual;
 	}
 
-	NodoArbol<T> *& getHijoIzq() {
-		return hijoIzq;
+	NodoArbol<T> *& getHijo(int indice) {
+		return hijos.buscarPorPosicion(indice);
 	}
 
-	NodoArbol<T> *& getHijoDer() {
-		return hijoDer;
+	void setHijo(NodoArbol<T> * e) {
+		hijos.insertarCola(e);
 	}
 
-	void setHijoIzq(NodoArbol<T> * e) {
-		this->hijoIzq = e;
+	int getCantHijos() {
+		return hijos.getSize();
 	}
 
-	void setHijoDer(NodoArbol<T> * e) {
-		this->hijoDer = e;
+	Lista<NodoArbol<T>> getHijos() {
+		return hijos;
 	}
 
 private:
