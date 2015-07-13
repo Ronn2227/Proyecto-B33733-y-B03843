@@ -38,6 +38,7 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}
 
 	fileResultados << resultados << endl; // Agrega los resultados al archivo de resultados.
+	cout << resultados << endl;
 	fileResultados.close();
 
 	system("pause");

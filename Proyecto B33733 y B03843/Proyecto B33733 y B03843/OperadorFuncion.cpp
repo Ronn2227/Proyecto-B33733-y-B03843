@@ -23,5 +23,5 @@ Operando * OperadorFuncion::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
 	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
 	Operando* b = static_cast<Operando*>(hijos->buscarPorPosicion(1)->getActual());
 	Operando* c = static_cast<Operando*>(hijos->buscarPorPosicion(2)->getActual());
-	return new Operando(b->getOperando()*c->getOperando()/a->getOperando());
+	return new Operando((b->getOperando()*c->getOperando())/a->getOperando());
 }

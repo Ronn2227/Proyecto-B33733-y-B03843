@@ -45,6 +45,10 @@ public:
 	void insertarElemento(T elemento) {
 		if (raiz == NULL) {
 			raiz = new NodoArbol<T>(elemento);
+			Operacion * oper = dynamic_cast<Operacion *>(raiz->getActual());
+			if (oper != NULL) {
+				oper->acortarOperadores();
+			}
 		}
 	}
 
@@ -125,7 +129,7 @@ private:
 		bool respuesta = true;
 		Operacion * a = new Operacion(numero);
 		int b = a->buscarParentesis();
-		if (b != -1){ // Si encuentra un operador entonces no puede convertir a string.
+		if (b != -1){ // Si encuentra un operador entonces no puede convertir a double.
 			respuesta = false;
 		}
 		delete a;
@@ -246,55 +250,57 @@ private:
 				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo)));
 			}
 		}
+		else {
+			OperadorBinario * bin = dynamic_cast<OperadorBinario*>(nuevo->getActual());
+			if (bin != NULL) {
+				string hijo1 = oper.substr(0, posicion); // Lo que hay a la izquiera del operador.
+				string hijo2 = oper.substr(posicion + 1); // Lo que hay a la derecha del operador.
 
-		OperadorBinario * bin = dynamic_cast<OperadorBinario*>(nuevo->getActual());
-		if (bin != NULL) {
-			string hijo1 = oper.substr(0, posicion); // Lo que hay a la izquiera del operador.
-			string hijo2 = oper.substr(posicion + 1, oper.length() - 1 - posicion); // Lo que hay a la derecha del operador.
+				if (puedeParseDouble(hijo1)){ // Si la parte izquierda es un operando la convierte.
+					nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo1))));
+				}
+				else{
+					nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo1)));
+				}
 
-			if (puedeParseDouble(hijo1)){ // Si la parte izquierda es un operando la convierte.
-				nuevo->setHijo(new NodoArbol<T>((new Operando(parseDouble(hijo1)))));
+				if (puedeParseDouble(hijo2)){ // Si la parte izquierda es un operando la convierte.
+					nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo2))));
+				}
+				else{
+					nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo2)));
+				}
 			}
-			else{
-				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo1)));
-			}
+			else {
+				OperadorTernario * ter = dynamic_cast<OperadorTernario*>(nuevo->getActual());
 
-			if (puedeParseDouble(hijo2)){ // Si la parte izquierda es un operando la convierte.
-				nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo2))));
-			}
-			else{
-				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo2)));
-			}
-		}
+				if (ter != NULL) {
+					int primeraComa = buscarCaracterFuera(oper, posicion + 2, ',', '[');
+					int segundaComa = buscarCaracterFuera(oper, primeraComa + 2, ',', '[');
+					string hijo1 = oper.substr(posicion + 2, primeraComa - posicion - 2);
+					string hijo2 = oper.substr(primeraComa + 1, segundaComa - primeraComa - 1);
+					string hijo3 = oper.substr(segundaComa + 1, buscarCaracterFuera(oper, segundaComa + 1, ']', '[') - segundaComa - 1);
 
-		OperadorTernario * ter = dynamic_cast<OperadorTernario*>(nuevo->getActual());
+					if (puedeParseDouble(hijo1)){ // Si la parte izquierda es un operando la convierte.
+						nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo1))));
+					}
+					else{
+						nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo1)));
+					}
 
-		if (ter != NULL) {
-			int primeraComa = buscarCaracterFuera(oper, posicion + 1, ',', '[');
-			int segundaComa = buscarCaracterFuera(oper, primeraComa + 1, ',', '[');
-			string hijo1 = oper.substr(posicion + 2, primeraComa - posicion - 2);
-			string hijo2 = oper.substr(primeraComa + 1, segundaComa - primeraComa - 1);
-			string hijo3 = oper.substr(segundaComa + 1, buscarCaracterFuera(oper, segundaComa + 1, ']', '[') - segundaComa - 1);
+					if (puedeParseDouble(hijo2)){ // Si la parte izquierda es un operando la convierte.
+						nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo2))));
+					}
+					else{
+						nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo2)));
+					}
 
-			if (puedeParseDouble(hijo1)){ // Si la parte izquierda es un operando la convierte.
-				nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo1))));
-			}
-			else{
-				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo1)));
-			}
-
-			if (puedeParseDouble(hijo2)){ // Si la parte izquierda es un operando la convierte.
-				nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo2))));
-			}
-			else{
-				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo2)));
-			}
-
-			if (puedeParseDouble(hijo3)){ // Si la parte izquierda es un operando la convierte.
-				nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo3))));
-			}
-			else{
-				nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo3)));
+					if (puedeParseDouble(hijo3)){ // Si la parte izquierda es un operando la convierte.
+						nuevo->setHijo(new NodoArbol<T>(new Operando(parseDouble(hijo3))));
+					}
+					else{
+						nuevo->setHijo(new NodoArbol<T>(new Operacion(hijo3)));
+					}
+				}
 			}
 		}
 		return nuevo;

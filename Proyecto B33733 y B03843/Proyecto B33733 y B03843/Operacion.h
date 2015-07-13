@@ -21,7 +21,12 @@ public:
 	int buscarOperador(); // Busca dónde está el operador de menor precedencia en la operación y devuelve la posición donde lo encontró, ignorando paréntesis.
 	int buscarParentesis(); // Busca dónde está el operador de menor precedencia en la operación y develve la posición donde lo encontro, dentro de paréntesis.
 	string getOperacion(); // Devuelve la operación.
+	void acortarOperadores();
+	void replaceAll(string, string);
 	static const int NUM_OPERADORES =10;
+	static const int NUM_OPERADORES_LARGOS = 5;
 	static const char OPERADORES[NUM_OPERADORES];
+	static const string OPERADORES_LARGOS[NUM_OPERADORES_LARGOS];
+	static const string OPERADORES_CORTOS[NUM_OPERADORES_LARGOS];
 };
 

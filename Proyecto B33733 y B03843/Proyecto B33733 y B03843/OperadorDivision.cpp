@@ -21,5 +21,5 @@ void OperadorDivision::imprimir(ostream& out) const {
 Operando * OperadorDivision::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
 	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
 	Operando* b = static_cast<Operando*>(hijos->buscarPorPosicion(1)->getActual());
-	return new Operando(a->getOperando() * b->getOperando());
+	return new Operando(a->getOperando() / b->getOperando());
 }

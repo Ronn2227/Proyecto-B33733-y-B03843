@@ -10,7 +10,7 @@ OperadorResta::~OperadorResta() {
 }
 
 int OperadorResta::compareTo(Elemento * otro) {
-	int cmp = -1; // No es necesario compararlo, siempre devuelve un -1.
+	int cmp = 0; // No es necesario compararlo, siempre devuelve un -1.
 	return cmp;
 }
 
