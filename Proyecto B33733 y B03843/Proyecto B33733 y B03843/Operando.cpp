@@ -2,15 +2,15 @@
 #include "Operando.h"
 
 
-Operando::Operando(double d) :Elemento(){
+Operando::Operando(double d) :Elemento() {
 	this->operando = d;
 }
 
 
-Operando::~Operando(){
+Operando::~Operando() {
 }
 
-int Operando::compareTo(Elemento* otro){
+int Operando::compareTo(Elemento* otro) {
 	int cmp = 0;
 	Operando * eDouble = static_cast<Operando *>(otro);
 	if (eDouble != 0){
@@ -23,6 +23,6 @@ void Operando::imprimir(ostream& out) const {
 	out << operando;
 }
 
-double Operando::getOperando(){
+double Operando::getOperando() {
 	return operando;
 }

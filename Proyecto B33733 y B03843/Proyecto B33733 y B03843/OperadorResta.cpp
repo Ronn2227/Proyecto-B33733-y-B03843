@@ -2,11 +2,11 @@
 #include "OperadorResta.h"
 
 
-OperadorResta::OperadorResta() :OperadorBinario(){
+OperadorResta::OperadorResta() :OperadorBinario() {
 }
 
 
-OperadorResta::~OperadorResta(){
+OperadorResta::~OperadorResta() {
 }
 
 int OperadorResta::compareTo(Elemento * otro) {
@@ -18,8 +18,8 @@ void OperadorResta::imprimir(ostream& out) const {
 	out << '-';
 }
 
-Operando * OperadorResta::operar(Lista<NodoArbol <Elemento*>> hijos) {
-	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
-	Operando* b = static_cast<Operando*>(hijos.buscarPorPosicion(1).getActual());
+Operando * OperadorResta::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
+	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
+	Operando* b = static_cast<Operando*>(hijos->buscarPorPosicion(1)->getActual());
 	return new Operando(a->getOperando() - b->getOperando());
 }

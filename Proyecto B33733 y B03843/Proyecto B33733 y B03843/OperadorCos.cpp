@@ -2,13 +2,11 @@
 #include "OperadorCos.h"
 
 
-OperadorCos::OperadorCos() : OperadorUnario()
-{
+OperadorCos::OperadorCos() : OperadorUnario() {
 }
 
 
-OperadorCos::~OperadorCos()
-{
+OperadorCos::~OperadorCos() {
 }
 
 int OperadorCos::compareTo(Elemento * otro) {
@@ -20,7 +18,7 @@ void OperadorCos::imprimir(ostream& out) const {
 	out << "cos";
 }
 
-Operando * OperadorCos::operar(Lista<NodoArbol <Elemento*>> hijos) {
-	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
+Operando * OperadorCos::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
+	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
 	return new Operando(cos(a->getOperando()));
 }

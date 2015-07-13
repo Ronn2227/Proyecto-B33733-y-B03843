@@ -2,13 +2,11 @@
 #include "OperadorLog.h"
 
 
-OperadorLog::OperadorLog() : OperadorUnario()
-{
+OperadorLog::OperadorLog() : OperadorUnario() {
 }
 
 
-OperadorLog::~OperadorLog()
-{
+OperadorLog::~OperadorLog() {
 }
 
 int OperadorLog::compareTo(Elemento * otro) {
@@ -20,7 +18,7 @@ void OperadorLog::imprimir(ostream& out) const {
 	out << "ln";
 }
 
-Operando * OperadorLog::operar(Lista<NodoArbol <Elemento*>> hijos) {
-	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
+Operando * OperadorLog::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
+	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
 	return new Operando(log(a->getOperando()));
 }

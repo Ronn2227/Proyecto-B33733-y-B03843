@@ -1,8 +1,8 @@
 #pragma once
 
-#include "OperadorTerciario.h"
+#include "OperadorTernario.h"
 
-class OperadorFuncion : public OperadorTerciario {
+class OperadorFuncion : public OperadorTernario {
 
 public:
 	OperadorFuncion();
@@ -10,5 +10,5 @@ public:
 
 	virtual int compareTo(Elemento *);
 	virtual void imprimir(ostream &) const;
-	virtual Operando * operar(Lista<NodoArbol <Elemento*>>);
+	virtual Operando * operar(Lista<NodoArbol <Elemento*> *> *);
 };

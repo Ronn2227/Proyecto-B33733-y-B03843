@@ -2,11 +2,11 @@
 #include "OperadorMultiplicacion.h"
 
 
-OperadorMultiplicacion::OperadorMultiplicacion() :OperadorBinario(){
+OperadorMultiplicacion::OperadorMultiplicacion() :OperadorBinario() {
 }
 
 
-OperadorMultiplicacion::~OperadorMultiplicacion(){
+OperadorMultiplicacion::~OperadorMultiplicacion() {
 }
 
 int OperadorMultiplicacion::compareTo(Elemento * otro) {
@@ -18,8 +18,8 @@ void OperadorMultiplicacion::imprimir(ostream& out) const {
 	out << '*';
 }
 
-Operando * OperadorMultiplicacion::operar(Lista<NodoArbol <Elemento*>> hijos) {
-	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
-	Operando* b = static_cast<Operando*>(hijos.buscarPorPosicion(1).getActual());
+Operando * OperadorMultiplicacion::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
+	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
+	Operando* b = static_cast<Operando*>(hijos->buscarPorPosicion(1)->getActual());
 	return new Operando(a->getOperando() * b->getOperando());
 }

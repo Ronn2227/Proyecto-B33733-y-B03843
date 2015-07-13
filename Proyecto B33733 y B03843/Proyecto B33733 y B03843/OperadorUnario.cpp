@@ -2,11 +2,9 @@
 #include "OperadorUnario.h"
 
 
-OperadorUnario::OperadorUnario()
-{
+OperadorUnario::OperadorUnario() {
 }
 
 
-OperadorUnario::~OperadorUnario()
-{
+OperadorUnario::~OperadorUnario() {
 }

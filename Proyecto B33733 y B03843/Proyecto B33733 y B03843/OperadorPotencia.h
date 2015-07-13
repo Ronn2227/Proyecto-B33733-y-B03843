@@ -11,5 +11,5 @@ public:
 
 	virtual int compareTo(Elemento *);
 	virtual void imprimir(ostream &) const;
-	virtual Operando * operar(Lista<NodoArbol <Elemento*>>);
+	virtual Operando * operar(Lista<NodoArbol <Elemento*> *> *);
 };

@@ -3,10 +3,8 @@
 
 
 OperadorTernario::OperadorTernario() {
-
 }
 
 
 OperadorTernario::~OperadorTernario() {
-
 }

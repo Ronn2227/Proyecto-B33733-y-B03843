@@ -9,5 +9,5 @@ public:
 	virtual ~OperadorUnario();
 	virtual int compareTo(Elemento *) = 0;
 	virtual void imprimir(ostream &) const = 0;
-	virtual Operando * operar(Lista<NodoArbol <Elemento*>>) = 0;
+	virtual Operando * operar(Lista<NodoArbol <Elemento*> *> *) = 0;
 };

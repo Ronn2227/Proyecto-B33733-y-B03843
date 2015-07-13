@@ -2,13 +2,11 @@
 #include "OperadorPotencia.h"
 
 
-OperadorPotencia::OperadorPotencia() : OperadorBinario()
-{
+OperadorPotencia::OperadorPotencia() : OperadorBinario() {
 }
 
 
-OperadorPotencia::~OperadorPotencia()
-{
+OperadorPotencia::~OperadorPotencia() {
 }
 
 int OperadorPotencia::compareTo(Elemento * otro) {
@@ -20,8 +18,8 @@ void OperadorPotencia::imprimir(ostream& out) const {
 	out << '^';
 }
 
-Operando * OperadorPotencia::operar(Lista<NodoArbol <Elemento*>> hijos) {
-	Operando* a = static_cast<Operando*>(hijos.buscarPorPosicion(0).getActual());
-	Operando* b = static_cast<Operando*>(hijos.buscarPorPosicion(1).getActual());
+Operando * OperadorPotencia::operar(Lista<NodoArbol <Elemento*> *> * hijos) {
+	Operando* a = static_cast<Operando*>(hijos->buscarPorPosicion(0)->getActual());
+	Operando* b = static_cast<Operando*>(hijos->buscarPorPosicion(1)->getActual());
 	return new Operando(pow(a->getOperando() , b->getOperando()));
 }
