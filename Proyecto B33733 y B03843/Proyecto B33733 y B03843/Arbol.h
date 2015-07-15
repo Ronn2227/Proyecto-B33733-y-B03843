@@ -33,6 +33,8 @@ private:
 
 public:
 
+
+
 	Arbol() { // Estado inicial del árbol.
 		raiz = NULL;
 	}
@@ -56,6 +58,8 @@ public:
 	void descomponerOperacion() {
 		descomponerOperacion(raiz);
 	}
+		
+	
 
 	void resolverArbol() {
 		resolverArbol(raiz);
@@ -99,6 +103,7 @@ private:
 		}
 		//Resuelve primero los hijos y luego se resuelve él.
 		if (nodo->getCantHijos() > 0){ // Si no tiene hijos entonces es un operando y no hace nada.
+			cout << raiz << endl;
 			Operador* actual = dynamic_cast<Operador*>(nodo->getActual()); // Convierte al nodo en un operador .
 			// Quita el nodo y lo remplaza con en el resultado correspondiente al tipo de operador con sus dos hijos.
 			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(nodo->getHijos()));
@@ -107,18 +112,11 @@ private:
 		}
 	}
 
-	void imprimir(NodoArbol<T> * nodo, ostream & out, int profundidad) { // Imprime el árbol.
-		if (nodo->getHijoIzq() != NULL) {
-			imprimir(nodo->getHijoIzq(), out, profundidad + 1);
-		}
-		for (int i = 0; i < profundidad; ++i) {
-			cout << "\t";
-		}
-		out << *nodo << endl;
-		if (nodo->getHijoDer() != NULL) {
-			imprimir(nodo->getHijoDer(), out, profundidad + 1);
-		}
+	void imprimir(NodoArbol<T>* nodo, ostream& out)
+	{
+		nodo->imprimir(nodo, out);
 	}
+
 
 	void destruirRec(NodoArbol<T> * nodo) { // Destruye el árbol recursivamente.
 		if (nodo->getCantHijos() > 0) {
@@ -212,6 +210,7 @@ private:
 	}
 
 	NodoArbol<T> * asignarHijos(string oper, int posicion) { // Crea un arbol segun un string y una posicion (reducir lineas de codigo).
+		
 		NodoArbol<T> * nuevo;
 		switch (oper[posicion]) {
 		case '-':
@@ -315,6 +314,7 @@ private:
 
 template<class T>
 ostream & operator<<(ostream & out, Arbol<T> & a) {
-	a.imprimir(a.raiz, out, 0);
+	a.imprimir(a.raiz, out);
 	return out;
 }
+

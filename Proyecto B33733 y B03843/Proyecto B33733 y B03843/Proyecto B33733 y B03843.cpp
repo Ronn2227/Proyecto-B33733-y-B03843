@@ -28,17 +28,20 @@ int _tmain(int argc, _TCHAR* argv[]){
 	}
 
 	for (int i = 0; i < operaciones.getSize(); i++){ // Resuelve cada operacion con un árbol.
+		cout << "Operacion Numero: " << i + 1 << endl;
+		cout << "" << endl;
 		Arbol<Elemento*> a;
 		Elemento *temp1 = operaciones.buscarPorPosicion(i); // Elemento temporal con la operación a resolver para insertarlo al arbol y que cuando se elimine, no afecte la lista de operaciones.
 		a.insertarElemento(temp1);
 		a.descomponerOperacion();
 		a.resolverArbol();
 		Elemento * temp2 = a.getRaiz(); // Elemento temporal para insertar en la lista de resultados para que no se vea afectado con la eliminacion del árbol.
+		cout << "El resultado de la operacion es: " <<temp2 << endl;         //imprime la solucion
 		resultados.insertarCola(temp2);
+		cout << "" << endl;
 	}
 
 	fileResultados << resultados << endl; // Agrega los resultados al archivo de resultados.
-	cout << resultados << endl;
 	fileResultados.close();
 
 	system("pause");

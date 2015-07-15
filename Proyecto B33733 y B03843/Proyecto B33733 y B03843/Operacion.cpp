@@ -51,11 +51,13 @@ int Operacion::buscarOperador(){
 }
 
 int Operacion::buscarParentesis(){
+
 	int respuesta;
 	int tamano = operacion.length();
 	tamano--;
 
 	if (operacion[0] == '(' && operacion[tamano] == ')'){ // Revisa si debe borrar paréntesis.
+
 		operacion.erase(operacion.begin() + tamano); // Borra último paréntesis. 
 		operacion.erase(operacion.begin()); // Borra primer paréntesis,
 	}
@@ -63,6 +65,8 @@ int Operacion::buscarParentesis(){
 	respuesta = buscarOperador(); // Llama al normal pero ya sin los paréntesis.
 	return respuesta;
 }
+
+
 
 string Operacion::getOperacion(){
 	return operacion;

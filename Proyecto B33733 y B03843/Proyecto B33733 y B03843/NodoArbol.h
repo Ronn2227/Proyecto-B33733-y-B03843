@@ -55,16 +55,49 @@ public:
 		return hijos;
 	}
 
-private:
+	void imprimir(NodoArbol<T> * nodo, ostream & out) { // Imprime el árbol.
+		Operando* posibleOperando = dynamic_cast<Operando*>(nodo->getActual());
+		if (posibleOperando != NULL)
+		{
+			cout << posibleOperando;
+		}
+		OperadorUnario * uni = dynamic_cast<OperadorUnario*>(nodo->getActual());
+		if (uni != NULL) {
+			nodo->getActual()->imprimir(out);
+			cout << "( ";
+			nodo->getHijo(0)->imprimir(nodo->getHijo(0), out);
+			cout << " )"; nodo->getHijo(0);
+		}
+		OperadorBinario * bin = dynamic_cast<OperadorBinario*>(nodo->getActual());
+		if (bin != NULL) {
 
-	void imprimir(ostream & out) {
-		out << actual;
+			cout << "(";
+			nodo->getHijo(0)->imprimir(nodo->getHijo(0), out);
+			cout << ")";
+			nodo->getActual()->imprimir(out);
+			cout << "(";
+			nodo->getHijo(1)->imprimir(nodo->getHijo(1), out);
+			cout << ")";
+
+		}
+		OperadorTernario * ter = dynamic_cast<OperadorTernario*>(nodo->getActual());
+		if (ter != NULL) {
+			nodo->getActual()->imprimir(out);
+			cout << "[";
+			nodo->getHijo(0)->imprimir(nodo->getHijo(0), out);
+			cout << ",";
+			nodo->getHijo(1)->imprimir(nodo->getHijo(1), out);
+			cout << ",";
+			nodo->getHijo(2)->imprimir(nodo->getHijo(2), out);
+			cout << "]";
+		}
 	}
 
 };
 
 template<class T>
-ostream & operator<<(ostream & out, NodoArbol<T> & n) {
-	n.imprimir(out);
+ostream & operator<<(ostream & out, NodoArbol<T> *& n) {
+	n->imprimir(n, out);
 	return out;
 }
+
