@@ -17,6 +17,7 @@
 #include "OperadorDivision.h"
 #include "OperadorPotencia.h"
 #include "OperadorFuncion.h"
+#include "IteradorArbol.h"
 
 using namespace std;
 
@@ -64,13 +65,25 @@ public:
 		return raiz->getActual();
 	}
 
+	IteradorArbol<T> begin() {
+		return IteradorArbol<T>(raiz);
+	}
+
+	IteradorArbol<T> end() {
+		return IteradorArbol<T>(NULL);
+	}
+
 private:
 	void descomponerOperacion(NodoArbol<T> *& nodo) { // Descompone la operación en operaciones más sencillas a resolver; recursivamente.
 		Operacion * actual = dynamic_cast<Operacion *>(nodo->getActual()); // Intenta convertir el nodo en una "Operacion".
 		if (actual != 0){ // Si era una Operacion quita el nodo y lo remplaza por un árbol que divide la operacion en dos partes.
 			NodoArbol<T> * temp = crearArbol(actual);
+			temp->setPadre(nodo->getPadre());
 			delete nodo;
 			nodo = temp;
+			for (int i = 0; i < nodo->getCantHijos(); ++i) {
+				nodo->getHijo(i)->setPadre(nodo);
+			}
 		}
 
 		// Se descompone él y luego descompone a sus hijos ,
@@ -84,15 +97,8 @@ private:
 		for (int i = 0; i < nodo->getCantHijos(); i++) {
 			resolverArbol(nodo->getHijo(i));
 		}
-
 		//Resuelve primero los hijos y luego se resuelve él.
-
 		if (nodo->getCantHijos() > 0){ // Si no tiene hijos entonces es un operando y no hace nada.
-			/*
-			Operando * hIzq = dynamic_cast<Operando*>(nodo->getHijoIzq()->getActual());
-			Operando * hDer = dynamic_cast<Operando*>(nodo->getHijoDer()->getActual());
-			*/
-
 			Operador* actual = dynamic_cast<Operador*>(nodo->getActual()); // Convierte al nodo en un operador .
 			// Quita el nodo y lo remplaza con en el resultado correspondiente al tipo de operador con sus dos hijos.
 			NodoArbol<T> * temp = new NodoArbol<T>(actual->operar(nodo->getHijos()));

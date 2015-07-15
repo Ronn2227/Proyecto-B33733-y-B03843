@@ -81,6 +81,8 @@
   <ItemGroup>
     <ClInclude Include="Arbol.h" />
     <ClInclude Include="Elemento.h" />
+    <ClInclude Include="IteradorArbol.h" />
+    <ClInclude Include="IteradorLista.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="NodoArbol.h" />
     <ClInclude Include="NodoLista.h" />

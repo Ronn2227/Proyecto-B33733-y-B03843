@@ -13,6 +13,7 @@ class NodoArbol {
 private:
 
 	T actual;
+	NodoArbol<T> * padre;
 	Lista<NodoArbol<T> *> * hijos;
 
 public:
@@ -20,6 +21,7 @@ public:
 	NodoArbol (T elemento) { // Estado inicial del Nodo.
 		this->actual = elemento;
 		hijos = new Lista<NodoArbol<T> *>();
+		padre = NULL;
 	}	
 
 	~NodoArbol(){
@@ -35,6 +37,14 @@ public:
 
 	void setHijo(NodoArbol<T> * e) {
 		hijos->insertarCola(e);
+	}
+
+	NodoArbol<T> *& getPadre(){
+		return padre;
+	}
+
+	void setPadre(NodoArbol<T> *& padre){
+		this->padre = padre;
 	}
 
 	int getCantHijos() {

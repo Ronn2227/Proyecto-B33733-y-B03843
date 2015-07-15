@@ -87,6 +87,12 @@
     <ClInclude Include="OperadorTernario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IteradorArbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IteradorLista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
